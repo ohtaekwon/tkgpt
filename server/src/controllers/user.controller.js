@@ -2,7 +2,7 @@ import jsonwebtoken from "jsonwebtoken";
 import User from "../models/user.model.js";
 import responseHandler from "../handlers/response.handler.js";
 
-const userRegister = async (req, res) => {
+const userSignUp = async (req, res) => {
   try {
     const { username, password } = req.body;
 
@@ -14,19 +14,20 @@ const userRegister = async (req, res) => {
 
     const user = new User({ username });
 
+    // user.username = username;
     user.setPassword(password);
 
     await user.save();
 
     const token = jsonwebtoken.sign(
       { data: user.id },
-      precess.env.TOKEN_SECRET,
+      process.env.TOKEN_SECRET,
       { expiresIn: "24H" }
     );
 
     responseHandler.created(res, {
       token,
-      ...user._doc,
+      username,
       id: user.id,
     });
   } catch (error) {
@@ -57,12 +58,12 @@ const userSignIn = async (req, res) => {
 
     responseHandler.created(res, {
       token,
-      ...user._doc,
-      id: user.id,
+      username,
+      id: user._id,
     });
   } catch (error) {
     responseHandler.error(res, error.message);
   }
 };
 
-export default { userRegister, userSignIn };
+export default { userSignUp, userSignIn };

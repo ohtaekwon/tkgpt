@@ -14,7 +14,7 @@ router.post(
     .withMessage("username은 필수입니다.")
     .isLength({ min: 6 })
     .withMessage("username은 최소 6글자 이상이어야 합니다.")
-    .isLength({ min: 15 })
+    .isLength({ max: 15 })
     .withMessage("username은 최대 15글자입니다."),
   body("password")
     .exists()
@@ -22,7 +22,7 @@ router.post(
     .isLength({ min: 8 })
     .withMessage("password는 8글자 이상이어야 합니다. "),
   requestHandler.validate,
-  userController.userRegister
+  userController.userSignUp
 );
 
 router.post(
@@ -47,4 +47,4 @@ router.get(
   tokenController.checkToken
 );
 
-export default rotuer;
+export default router;
