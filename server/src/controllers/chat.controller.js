@@ -19,3 +19,5 @@ const chatCompletion = async (req, res) => {
     responseHandler.error(res, error.message);
   }
 };
+
+export default { chatCompletion };
