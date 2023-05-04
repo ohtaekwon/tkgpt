@@ -1,5 +1,16 @@
 ## TK GPT
 
+## 주요 기능
+
+- **챗봇** : openAI API를 사용하여 텍스트를 입력시에, chat GPT의 응답 TEXT를 응답받는다.
+- **GPT 모델** : openAI의 GPT-3모델로 `text-davinci-003` 을 사용
+- **text-davinci-003** : 002 모델보다 003의 개선된 부분
+  - 더 높은 품질의 글 생성
+  - 더 복잡한 명령어 처리 기능
+  - 더 긴 형식의 콘텐츠 생성이 가능
+
+[\*모델 종류 설명](https://platform.openai.com/account/rate-limits)
+
 ## 🔎 프로젝트 살펴보기
 
 ### 프로젝트 실행
