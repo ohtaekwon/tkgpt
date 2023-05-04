@@ -1,9 +1,10 @@
+import { handleError } from "lib/utils/helpers";
 import privateClient from "../client/private.client";
 import publicClient from "../client/public.client";
 
 const userApiRoutes = {
-  signUp: "user/signup",
-  signIn: "user/signin",
+  signUp: "users/signup",
+  signIn: "users/signin",
   checkToken: "users/check-token",
 };
 
@@ -22,7 +23,8 @@ const userApis = {
       });
       return { response };
     } catch (error) {
-      return { error };
+      const { code, message } = handleError(error);
+      return { error: { code, message } };
     }
   },
   signIn: async ({
@@ -33,21 +35,23 @@ const userApis = {
     password: string;
   }) => {
     try {
-      const response = await publicClient.post(userApiRoutes.signIn, {
+      const response: any = await publicClient.post(userApiRoutes.signIn, {
         username,
         password,
       });
       return { response };
     } catch (error) {
-      return error;
+      const { code, message } = handleError(error);
+      return { error: { code, message } };
     }
   },
   checkToken: async () => {
     try {
-      const response = await privateClient.get(userApiRoutes.checkToken);
+      const response: any = await privateClient.get(userApiRoutes.checkToken);
       return { response };
     } catch (error) {
-      return { error };
+      const { code, message } = handleError(error);
+      return { error: { code, message } };
     }
   },
 };
