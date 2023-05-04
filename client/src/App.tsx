@@ -10,6 +10,7 @@ import SignUp from "pages/SignUp";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { CssBaseline } from "@mui/material";
 import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const theme = createTheme({
@@ -19,8 +20,7 @@ function App() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        {/* mui reset css */}
-        <CssBaseline />
+        {/* Toastify */}
         <ToastContainer
           position="bottom-left"
           autoClose={4000}
@@ -30,6 +30,13 @@ function App() {
           rtl={false}
           pauseOnHover
         />
+        {/* Toastify */}
+
+        {/* mui reset css */}
+        <CssBaseline />
+        {/* mui reset css */}
+
+        {/* Router */}
         <BrowserRouter>
           <Routes>
             <Route
@@ -58,6 +65,7 @@ function App() {
             />
           </Routes>
         </BrowserRouter>
+        {/* Router */}
       </ThemeProvider>
     </>
   );

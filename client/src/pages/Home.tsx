@@ -130,6 +130,7 @@ const Home = () => {
       chatWrapperRef.current!.addEventListener("DOMNodeInserted", () => chatFn);
     }, 200);
   }, []);
+
   return (
     <Stack
       alignItems="center"
@@ -197,35 +198,37 @@ const Home = () => {
             width: "100%",
           }}
         >
-          {messages.map((item: any, index: number) => (
-            <Box key={index} padding={1}>
-              <Box
-                sx={{
-                  padding: 2,
-                  bgcolor: `${item.type === STATE_NAMES.answer && "#2f2f2f"}`,
-                  borderRadius: 3,
-                }}
-              >
-                {index === messages.length - 1 ? (
-                  item.type === STATE_NAMES.answer ? (
-                    <TypeWriter
-                      onInit={(writer) => {
-                        writer
-                          .typeString(item.content)
-                          .callFunction(onCallFunction)
-                          .changeDelay(50)
-                          .start();
-                      }}
-                    />
+          {(messages as { type: string; content: string }[]).map(
+            (item, index) => (
+              <Box key={index} padding={1}>
+                <Box
+                  sx={{
+                    padding: 2,
+                    bgcolor: `${item.type === STATE_NAMES.answer && "#2f2f2f"}`,
+                    borderRadius: 3,
+                  }}
+                >
+                  {index === messages.length - 1 ? (
+                    item.type === STATE_NAMES.answer ? (
+                      <TypeWriter
+                        onInit={(writer) => {
+                          writer
+                            .typeString(item.content)
+                            .callFunction(onCallFunction)
+                            .changeDelay(50)
+                            .start();
+                        }}
+                      />
+                    ) : (
+                      item.content
+                    )
                   ) : (
                     item.content
-                  )
-                ) : (
-                  item.content
-                )}
+                  )}
+                </Box>
               </Box>
-            </Box>
-          ))}
+            )
+          )}
         </Box>
       </Box>
 
@@ -263,7 +266,7 @@ const Home = () => {
                   value: e.target.value,
                 })
               }
-              placeholder="Ask something..."
+              placeholder="질문을 입력해주세요.."
             />
           </FormControl>
         </Box>
