@@ -5,10 +5,10 @@ const chatCompletion = async (req, res) => {
   try {
     const { prompt } = req.body;
 
-    const answer = await chatGPT.openApi.createChatCompletion({
+    const answer = await chatGPT.openApi.createCompletion({
       model: "text-davinci-003",
       prompt: prompt,
-      temperature: 0,
+      temperature: 0.7,
       max_tokens: 3000,
     });
 
