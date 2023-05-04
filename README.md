@@ -50,5 +50,6 @@ npm run start
 
 ### 구현
 
-**OPEN AI 응답 요청 구현**
-[GPT 응답](https://user-images.githubusercontent.com/75871005/236201715-ecd4a28a-0195-4114-a379-f1e2295fef08.gif)
+#### 1. OPEN AI 응답 요청 구현
+
+![GPT 응답](https://user-images.githubusercontent.com/75871005/236201715-ecd4a28a-0195-4114-a379-f1e2295fef08.gif)
