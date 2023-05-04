@@ -38,23 +38,17 @@ const AuthRoute = ({ children }: { children: React.ReactNode }) => {
             height: "100vh",
             display: "flex",
             flexDirection: "column",
-            justifyContent: "space-between",
+            // justifyContent: "space-between",
             alignItems: "center",
           }}
         >
           <Header>
             <Typography variant="h5" fontWeight="600">
-              AI Chat
+              TK GPT
             </Typography>
           </Header>
 
-          <Box width="100%">{children}</Box>
-
-          <Box padding={2}>
-            <Typography variant="caption" color="primary">
-              tkgpt
-            </Typography>
-          </Box>
+          <Box padding={2}>{children}</Box>
         </Container>
       )}
     </>

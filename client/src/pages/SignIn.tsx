@@ -52,11 +52,12 @@ const SignIn = () => {
     if (error) toast.error(error.message);
   };
   return (
-    <Box component="form" noValidate onSubmit={form.handleSubmit}>
+    <Box component="form" noValidate onSubmit={form.handleSubmit} width="500px">
       <Stack spacing={3}>
         <TextField
+          sx={textStyle}
           fullWidth
-          placeholder="username"
+          placeholder="아이디"
           name="username"
           value={form.values.username}
           onChange={form.handleChange}
@@ -64,9 +65,10 @@ const SignIn = () => {
           helperText={form.touched.username && form.errors.username}
         />
         <TextField
+          sx={textStyle}
           fullWidth
           type="password"
-          placeholder="password"
+          placeholder="비밀번호"
           name="password"
           value={form.values.password}
           onChange={form.handleChange}
@@ -80,10 +82,10 @@ const SignIn = () => {
           loading={isRequest}
           color="success"
         >
-          signin
+          로그인
         </LoadingButton>
         <Button component={Link} to="/signup" size="small">
-          signup
+          회원가입
         </Button>
       </Stack>
     </Box>
@@ -91,3 +93,7 @@ const SignIn = () => {
 };
 
 export default SignIn;
+
+const textStyle = {
+  height: "80px",
+};
