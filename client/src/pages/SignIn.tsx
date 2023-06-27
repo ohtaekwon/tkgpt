@@ -21,7 +21,7 @@ const SignIn = () => {
       username: yup
         .string()
         .required("아이디 또는 사용자 이름은 필수 입력 사항입니다.")
-        .min(3, "최소 6글자 이상입니다.")
+        .min(3, "최소 3글자 이상입니다.")
         .max(15, "최대 15글자까지 입니다."),
       password: yup
         .string()
@@ -57,7 +57,7 @@ const SignIn = () => {
         <TextField
           sx={textStyle}
           fullWidth
-          placeholder="아이디"
+          placeholder="아이디를 입력하세요."
           name="username"
           value={form.values.username}
           onChange={form.handleChange}
@@ -68,7 +68,7 @@ const SignIn = () => {
           sx={textStyle}
           fullWidth
           type="password"
-          placeholder="비밀번호"
+          placeholder="비밀번호를 입력하세요."
           name="password"
           value={form.values.password}
           onChange={form.handleChange}

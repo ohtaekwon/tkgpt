@@ -20,7 +20,7 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
       }
 
       if (response) {
-        localStorage.setItem("username", response.username);
+        localStorage.setItem("tkgpt", response.username);
         setIsLoading(false);
       }
     };
