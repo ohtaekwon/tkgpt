@@ -21,12 +21,12 @@ const SignIn = () => {
       username: yup
         .string()
         .required("아이디 또는 사용자 이름은 필수 입력 사항입니다.")
-        .min(3)
-        .max(15),
+        .min(3, "최소 6글자 이상입니다.")
+        .max(15, "최대 15글자까지 입니다."),
       password: yup
         .string()
         .required("비밀 번호는 필수 입력 사항입니다.")
-        .min(6),
+        .min(6, "최소 6글자 입니다."),
     }),
     onSubmit: (values) => onSignIn(values),
   });
